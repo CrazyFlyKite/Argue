@@ -1,0 +1,19 @@
+# Compiled Python files
+__pycache__/
+*.pyc
+
+# Built files
+.buildozer/
+bin/
+build/
+KivyMD/
+python-for-android/
+
+# Virtual environment
+.venv/
+
+# PyCharm IDE files
+.idea/
+
+# MacOS be like
+.DS_Store

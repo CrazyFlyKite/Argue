@@ -1,0 +1,258 @@
+ScreenManager:
+    id: screen_manager
+
+    # Main screen
+    Screen:
+        name: 'main'
+
+        FloatLayout:
+            Image:
+                source: 'background.jpg'
+                allow_stretch: True
+                keep_ratio: False
+
+            MDLabel:
+                text: 'Argüe'
+                halign: 'center'
+                valign: 'top'
+                font_name: 'JetBrainsMono'
+                font_size: '80sp'
+                size_hint_y: None
+                pos_hint: {'center_x': 0.5, 'top': 0.9}
+
+            MDLabel:
+                text: 'by CrazyFlyKite'
+                halign: 'center'
+                valign: 'top'
+                font_name: 'JetBrainsMono'
+                font_size: '20sp'
+                color: 1, 1, 1, 0.5
+                size_hint_y: None
+                pos_hint: {'center_x': 0.5, 'top': 0.8}
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                spacing: 10
+                adaptive_width: True
+                adaptive_height: True
+
+                # Correct counter
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: None, None
+                    width: '150dp'
+                    height: '250dp'
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.575}
+
+                    MDFloatingActionButton:
+                        icon: 'plus'
+                        icon_size: '50dp'
+                        on_release: app.show_reason_dialog('correct')
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                    MDLabel:
+                        id: correct_label
+                        text: str(app.correct)
+                        halign: 'center'
+                        valign: 'center'
+                        theme_text_color: 'Custom'
+                        text_color: 0.07, 0.83, 0.13, 1
+                        bold: True
+                        font_style: 'H2'
+                        size_hint: None, None
+                        width: '150dp'
+                        height: '100dp'
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                    MDLabel:
+                    	id: correct_percentage_label
+						halign: 'center'
+						valign: 'center'
+						theme_text_color: 'Custom'
+						text_color: 0.07, 0.83, 0.13, 0.7
+						font_style: 'Subtitle1'
+						size_hint: None, None
+						width: '150dp'
+						height: '40dp'
+						pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+
+                # Incorrect counter
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: None, None
+                    width: '150dp'
+                    height: '250dp'
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.575}
+
+                    MDFloatingActionButton:
+                        icon: 'plus'
+                        icon_size: '50dp'
+                        on_release: app.show_reason_dialog('incorrect')
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                    MDLabel:
+                        id: incorrect_label
+                        text: str(app.incorrect)
+                        halign: 'center'
+                        valign: 'center'
+                        theme_text_color: 'Custom'
+                        text_color: 1, 0, 0, 1
+                        bold: True
+                        font_style: 'H2'
+                        size_hint: None, None
+                        width: '150dp'
+                        height: '100dp'
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                    MDLabel:
+                    	id: incorrect_percentage_label
+						halign: 'center'
+						valign: 'center'
+						theme_text_color: 'Custom'
+						text_color: 1, 0, 0, 0.7
+						font_style: 'Subtitle1'
+						size_hint: None, None
+						width: '150dp'
+						height: '40dp'
+						pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+
+            # History, info and GitHub buttons
+			AnchorLayout:
+				anchor_x: 'right'
+				anchor_y: 'bottom'
+
+				MDBoxLayout:
+					size_hint: None, None
+					width: '230dp'
+					height: '80dp'
+					padding: '10dp'
+					spacing: '20dp'
+
+					MDFloatingActionButton:
+						icon: 'github'
+						icon_size: '40dp'
+						theme_text_color: 'Custom'
+						text_color: 1, 1, 1, 1
+						on_release: app.open_github()
+
+					MDFloatingActionButton:
+						icon: 'information'
+						icon_size: '40dp'
+						theme_text_color: 'Custom'
+						text_color: 1, 1, 1, 1
+						on_release: app.show_info()
+						pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+					MDFloatingActionButton:
+						icon: 'history'
+						icon_size: '40dp'
+						on_release: app.show_history()
+						md_bg_color: app.theme_cls.primary_color
+						pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    # History screen
+    Screen:
+        name: 'history'
+
+        Image:
+            source: 'background.jpg'
+            allow_stretch: True
+            keep_ratio: False
+
+        MDLabel:
+            text: 'Histöry'
+            halign: 'center'
+            valign: 'top'
+            font_name: 'JetBrainsMono'
+            font_size: '50sp'
+            color: 1, 1, 1, 1
+            size_hint_y: 1.75
+            height: '120dp'
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: '10dp'
+            spacing: '10dp'
+            pos_hint: {'y': -0.2}
+
+            ScrollView:
+                MDList:
+                    id: history_list
+
+        AnchorLayout:
+            anchor_x: 'left'
+            anchor_y: 'bottom'
+
+            MDBoxLayout:
+                size_hint: None, None
+                width: '80dp'
+                height: '80dp'
+                padding: '10dp'
+
+                MDFloatingActionButton:
+                    icon: 'arrow-left'
+                    icon_size: '50dp'
+                    on_release: app.go_to_main_screen()
+
+        AnchorLayout:
+			anchor_x: 'right'
+			anchor_y: 'bottom'
+
+			MDBoxLayout:
+				size_hint: None, None
+				width: '80dp'
+				height: '80dp'
+				padding: '10dp'
+
+				MDFloatingActionButton:
+					icon: 'delete'
+					icon_size: '40dp'
+					on_release: app.delete_history()
+					md_bg_color: 1, 0, 0, 1
+
+
+    # Info Screen
+	Screen:
+		name: 'info'
+
+		Image:
+			source: 'background.jpg'
+			allow_stretch: True
+			keep_ratio: False
+
+		MDLabel:
+			text: 'Infö'
+			halign: 'center'
+			font_size: '50sp'
+			color: 1, 1, 1, 1
+			font_name: 'JetBrainsMono'
+			size_hint_y: 1.75
+			height: '120dp'
+
+		MDLabel:
+			text: app.info
+			halign: 'center'
+			font_size: '20sp'
+			color: 1, 1, 1, 1
+			font_name: 'JetBrainsMono'
+			size_hint_y: None
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			padding: '50dp'
+			markup: True
+
+		# Back Button
+		AnchorLayout:
+			anchor_x: 'left'
+			anchor_y: 'bottom'
+
+			MDBoxLayout:
+				size_hint: None, None
+				width: '80dp'
+				height: '80dp'
+				padding: '10dp'
+
+				MDFloatingActionButton:
+					icon: 'arrow-left'
+					icon_size: '50dp'
+					on_release: app.go_to_main_screen()
