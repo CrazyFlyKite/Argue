@@ -229,7 +229,7 @@ class ArgueApp(MDApp):
 		self.root.current = INFO_SCREEN
 
 	def open_github(self) -> None:
-		webbrowser.open('https://github.com/CrazyFlyKite?tab=repositories')
+		webbrowser.open('https://github.com/CrazyFlyKite/Argue')
 
 	def delete_history(self):
 		def delete_history():
