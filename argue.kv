@@ -119,15 +119,15 @@ ScreenManager:
 
             # History, info and GitHub buttons
 			AnchorLayout:
-				anchor_x: 'right'
+				anchor_x: 'left'
 				anchor_y: 'bottom'
 
 				MDBoxLayout:
 					size_hint: None, None
-					width: '230dp'
+					width: '240dp'
 					height: '80dp'
 					padding: '10dp'
-					spacing: '20dp'
+					spacing: '15dp'
 
 					MDFloatingActionButton:
 						icon: 'github'
@@ -233,12 +233,12 @@ ScreenManager:
 		MDLabel:
 			text: app.info
 			halign: 'center'
-			font_size: '20sp'
+			font_size: '15sp'
 			color: 1, 1, 1, 1
 			font_name: 'JetBrainsMono'
 			size_hint_y: None
 			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-			padding: '50dp'
+			padding: '10dp'
 			markup: True
 
 		# Back Button

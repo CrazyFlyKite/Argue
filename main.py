@@ -18,8 +18,6 @@ class ArgueApp(MDApp):
 	info: str = INFO
 	history: ListProperty([])
 	dialog: MDDialog
-	correct_percentage: int = 0
-	incorrect_percentage: int = 0
 
 	def __init__(self, **kwargs) -> None:
 		super().__init__(**kwargs)
@@ -59,8 +57,8 @@ class ArgueApp(MDApp):
 				self.dialog.dismiss()
 
 		self.dialog = ask_text_dialog(
-			title=f'Reason for {point_type} point', hint='Enter the reason',
-			button_text='Save', button_color=(1, 0, 0, 1), function=lambda *args: save()
+			title=f'Reason for {point_type} point', hint='Reason',
+			button_text='Save', button_color=(0.1, 0.7, 0.2, 1), function=lambda *args: save()
 		)
 		self.dialog.open()
 
@@ -157,7 +155,7 @@ class ArgueApp(MDApp):
 		self.dialog = yes_no_dialog(
 			title='Open Github', description='Are you sure you want to visit the GitHub page of this project?',
 			button_text='Yes', button_color=(0.1, 0.7, 0.2, 1),
-			function=lambda *args: webbrowser.open('https://github.com/CrazyFlyKite/Argue')
+			function=lambda *args: webbrowser.open(GITHUB_LINK)
 		)
 		self.dialog.open()
 

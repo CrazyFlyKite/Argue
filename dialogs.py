@@ -9,10 +9,11 @@ from utilities import ColorType
 
 def ask_text_dialog(*, title: str, hint: str, button_text: str, button_color: ColorType,
                     function: Callable) -> MDDialog:
+	text_field: MDTextField = MDTextField(hint_text=hint)
 	dialog: MDDialog = MDDialog(
 		title=title,
 		type='custom',
-		content_cls=MDTextField(hint_text=hint),
+		content_cls=text_field,
 		buttons=[
 			MDRaisedButton(
 				text='Cancel',
@@ -25,7 +26,8 @@ def ask_text_dialog(*, title: str, hint: str, button_text: str, button_color: Co
 				on_release=function,
 				size=('100dp', '40dp'),
 			)
-		]
+		],
+		on_open=lambda *args: setattr(text_field, 'focus', True)
 	)
 
 	return dialog

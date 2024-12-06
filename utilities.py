@@ -6,14 +6,7 @@ PathLikeString: TypeAlias = str | PathLike
 PointInfo: TypeAlias = Dict[str, str]
 ColorType: TypeAlias = Tuple[float, float, float, float]
 
-# Window
-TITLE: Final[str] = 'Argüe'
-WIDTH: Final[int] = 1080
-HEIGHT: Final[int] = 2340
-
-HALF_WIDTH: Final[int] = WIDTH // 2
-HALF_HEIGHT: Final[int] = HEIGHT // 2
-
+# Theme
 PALETTE: Final[str] = 'Blue'
 THEME: Final[str] = 'Dark'
 
@@ -31,6 +24,9 @@ COLOR_DELETE: Final[ColorType] = 0.9, 0.2, 0, 0.8
 MAIN_SCREEN: Final[str] = 'main'
 HISTORY_SCREEN: Final[str] = 'history'
 INFO_SCREEN: Final[str] = 'info'
+
+# Other
+GITHUB_LINK: Final[str] = 'https://github.com/CrazyFlyKite/Argue'
 
 # Info
 INFO: Final[str] = '''
