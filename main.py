@@ -152,10 +152,14 @@ class ArgueApp(MDApp):
 		self.root.current = INFO_SCREEN
 
 	def open_github(self) -> None:
+		def open_github() -> None:
+			webbrowser.open(GITHUB_LINK)
+			self.dialog.dismiss()
+
 		self.dialog = yes_no_dialog(
-			title='Open Github', description='Are you sure you want to visit the GitHub page of this project?',
+			title='Open GitHub', description='Are you sure you want to visit the GitHub page of this project?',
 			button_text='Yes', button_color=(0.1, 0.7, 0.2, 1),
-			function=lambda *args: webbrowser.open(GITHUB_LINK)
+			function=lambda *args: open_github()
 		)
 		self.dialog.open()
 
