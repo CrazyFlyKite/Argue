@@ -26,7 +26,7 @@ ScreenManager:
                 valign: 'top'
                 font_name: 'JetBrainsMono'
                 font_size: '20sp'
-                color: 1, 1, 1, 0.5
+                color: 1, 1, 1, 1
                 size_hint_y: None
                 pos_hint: {'center_x': 0.5, 'top': 0.8}
 
@@ -143,6 +143,16 @@ ScreenManager:
 						text_color: 1, 1, 1, 1
 						on_release: app.show_info()
 						pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+			AnchorLayout:
+				anchor_x: 'right'
+				anchor_y: 'bottom'
+
+				MDBoxLayout:
+					size_hint: None, None
+					width: '70dp'
+					height: '80dp'
+					spacing: '15dp'
 
 					MDFloatingActionButton:
 						icon: 'history'
