@@ -27,20 +27,3 @@ INFO_SCREEN: Final[str] = 'info'
 
 # Other
 GITHUB_LINK: Final[str] = 'https://github.com/CrazyFlyKite/Argue'
-
-# Info
-INFO: Final[str] = '''
-Track [color=00FF00]correct[/color] and [color=FF0000]incorrect[/color] points during your discussions!
-
-
-Use the [color=00FF00]correct[/color] counter when:
-- Someone makes a valid point or wins an argument
-- A statement is proven to be true or helpful in the discussion
-
-Use the [color=FF0000]incorrect[/color] counter when:
-- Someone is proven wrong or loses an argument
-- A statement turns out to be false or irrelevant
-
-
-[color=0066CC]Add reasons for each point to make it more fun to review later![/color]
-'''

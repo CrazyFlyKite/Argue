@@ -20,16 +20,18 @@
 - [`dialogs.py`](dialogs.py): Defines some re-usable dialog windows to reduce code size
 - [`data_manager.py`](data_manager.py): Simplifies the proces of accessing to [`data.json`](data.json)
 - [`ultilities.py`](utilities.py): Contains basic parameters for the app
+- [`translations.py`](translations.py): Contains the logic for loading and managing translations for the application.
 - [`argue.kv`](argue.kv): Defines the UI structure and layout of the application,
   including screens like **Main**, **History**, and **Info**
 - [`data.json`](data.json): Contains the history of points
+- [`translations.json`](translations.json): Stores the translated strings for different languages, like
+  **English** 🇬🇧, **Russian** 🇷🇺, **Ukrainian** 🇺🇦, **French** 🇫🇷
 - [`background.jpg`](background.jpg): The background image used across all screens
 - [`JetBrainsMono.ttf`](https://www.jetbrains.com/lp/mono): Main font of the project
 
 ## License
 
 ![License](https://img.shields.io/badge/License-MIT-green)
-
 
 ## Note
 

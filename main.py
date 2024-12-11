@@ -1,27 +1,25 @@
 import webbrowser
 
-from kivy.properties import ListProperty
 from kivy.uix.screenmanager import SlideTransition
 from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.button import MDIconButton
-from kivymd.uix.dialog import MDDialog
 from kivymd.uix.label import MDIcon, MDLabel
 from kivymd.uix.widget import MDWidget
 
 from data_manager import data_manager
 from dialogs import ask_text_dialog, yes_no_dialog
+from translations import get_translation
 from utilities import *
 
 
 class ArgueApp(MDApp):
-	info: str = INFO
-	history: ListProperty([])
-	dialog: MDDialog
-
 	def __init__(self, **kwargs) -> None:
 		super().__init__(**kwargs)
-		self.history = data_manager.load().get('history', [])
+		self.history = None
+		self.dialog = None
+		self.language = 'fr'
+		self.history = data_manager.load().get('history')
 
 	def build(self) -> MDWidget:
 		self.theme_cls.primary_palette = PALETTE
@@ -57,8 +55,9 @@ class ArgueApp(MDApp):
 				self.dialog.dismiss()
 
 		self.dialog = ask_text_dialog(
-			title=f'Reason for {point_type} point', hint='Reason',
-			button_text='Save', button_color=(0.1, 0.7, 0.2, 1), function=lambda *args: save()
+			title=self.translate('action_titles/reason_for_point'), hint=self.translate('hints/reason'),
+			button_text1=self.translate('buttons/cancel'), button_text2=self.translate('buttons/save'),
+			button_color=(0.1, 0.7, 0.2, 1), function=lambda *args: save()
 		)
 		self.dialog.open()
 
@@ -128,8 +127,9 @@ class ArgueApp(MDApp):
 				self.root.ids.history_list.children[index].children[2].text = new_reason
 
 		self.dialog = ask_text_dialog(
-			title='Edit Reason', hint='Enter new reason',
-			button_text='Save', button_color=(1, 0, 0, 1), function=lambda *args: save_edited_reason()
+			title=self.translate('action_titles/edit_reason'), hint=self.translate('hints/enter_reason'),
+			button_text1=self.translate('buttons/cancel'), button_text2=self.translate('buttons/save'),
+			button_color=(0.1, 0.7, 0.2, 1), function=lambda *args: save_edited_reason()
 		)
 		self.dialog.content_cls.text = self.history[index]['reason']
 		self.dialog.open()
@@ -144,11 +144,9 @@ class ArgueApp(MDApp):
 			history_list.remove_widget(history_list.children[index])
 
 		self.dialog = yes_no_dialog(
-			title='Confirm Deletion',
-			description='Are you sure you want to delete this entry?',
-			button_text='Delete',
-			button_color=(1, 0, 0, 1),
-			function=lambda *args: delete()
+			title=self.translate('action_titles/confirm_deletion'), description=self.translate('descriptions/delete'),
+			button_text1=self.translate('buttons/cancel'), button_text2=self.translate('buttons/delete'),
+			button_color=(1, 0, 0, 1), function=lambda *args: delete()
 		)
 		self.dialog.open()
 
@@ -162,9 +160,9 @@ class ArgueApp(MDApp):
 			self.dialog.dismiss()
 
 		self.dialog = yes_no_dialog(
-			title='Open GitHub', description='Are you sure you want to visit the GitHub page of this project?',
-			button_text='Yes', button_color=(0.1, 0.7, 0.2, 1),
-			function=lambda *args: open_github()
+			title=self.translate('action_titles/open_github'), description=self.translate('descriptions/open_github'),
+			button_text1=self.translate('buttons/cancel'), button_text2=self.translate('buttons/visit'),
+			button_color=(0.1, 0.7, 0.2, 1), function=lambda *args: open_github()
 		)
 		self.dialog.open()
 
@@ -176,8 +174,10 @@ class ArgueApp(MDApp):
 			self.dialog.dismiss()
 
 		self.dialog = yes_no_dialog(
-			title='Clear History', description='Are you sure you want to clear the history?',
-			button_text='Clear', button_color=(1, 0, 0, 1), function=lambda *args: clear()
+			title=self.translate('action_titles/clear_history'),
+			description=self.translate('descriptions/clear_history'),
+			button_text1=self.translate('buttons/cancel'), button_text2=self.translate('buttons/clear'),
+			button_color=(1, 0, 0, 1), function=lambda *args: clear()
 		)
 		self.dialog.open()
 
@@ -185,6 +185,9 @@ class ArgueApp(MDApp):
 		self.update_labels()
 		self.root.transition = SlideTransition(direction='right', duration=0.3)
 		self.root.current = MAIN_SCREEN
+
+	def translate(self, text_id: str) -> str:
+		return get_translation(self.language, text_id)
 
 
 if __name__ == '__main__':

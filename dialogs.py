@@ -7,7 +7,7 @@ from kivymd.uix.textfield import MDTextField
 from utilities import ColorType
 
 
-def ask_text_dialog(*, title: str, hint: str, button_text: str, button_color: ColorType,
+def ask_text_dialog(*, title: str, hint: str, button_text1: str, button_text2: str, button_color: ColorType,
                     function: Callable) -> MDDialog:
 	text_field: MDTextField = MDTextField(hint_text=hint)
 	dialog: MDDialog = MDDialog(
@@ -16,12 +16,12 @@ def ask_text_dialog(*, title: str, hint: str, button_text: str, button_color: Co
 		content_cls=text_field,
 		buttons=[
 			MDRaisedButton(
-				text='Cancel',
+				text=button_text1,
 				on_release=lambda *args: dialog.dismiss(),
 				size=('100dp', '40dp'),
 			),
 			MDRaisedButton(
-				text=button_text.capitalize(),
+				text=button_text2.capitalize(),
 				md_bg_color=button_color,
 				on_release=function,
 				size=('100dp', '40dp'),
@@ -33,19 +33,19 @@ def ask_text_dialog(*, title: str, hint: str, button_text: str, button_color: Co
 	return dialog
 
 
-def yes_no_dialog(*, title: str, description: str, button_text: str, button_color: ColorType,
+def yes_no_dialog(*, title: str, description: str, button_text1: str, button_text2: str, button_color: ColorType,
                   function: Callable) -> MDDialog:
 	dialog: MDDialog = MDDialog(
 		title=title,
 		text=description,
 		buttons=[
 			MDRaisedButton(
-				text='Cancel',
+				text=button_text1.capitalize(),
 				on_release=lambda *args: dialog.dismiss(),
 				size=('100dp', '40dp'),
 			),
 			MDRaisedButton(
-				text=button_text.capitalize(),
+				text=button_text2.capitalize(),
 				md_bg_color=button_color,
 				on_release=function,
 				size=('100dp', '40dp'),
