@@ -170,23 +170,13 @@ ScreenManager:
 			allow_stretch: True
 			keep_ratio: False
 
-		MDLabel:
-			text: 'Histöry'
-			halign: 'center'
-			valign: 'top'
-			font_name: 'JetBrainsMono'
-			font_size: '50sp'
-			color: 1, 1, 1, 1
-			size_hint_y: 1.75
-			height: '100dp'
-
 		BoxLayout:
 			orientation: 'vertical'
-			pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+			pos_hint: {'center_x': 0.5, 'center_y': 0.6}
 
 			ScrollView:
 				size_hint_y: None
-				height: self.parent.height - 400
+				height: self.parent.height - 200
 
 				MDList:
 					id: history_list
@@ -232,7 +222,7 @@ ScreenManager:
 			keep_ratio: False
 
 		MDLabel:
-			text: 'Infö'
+			text: 'Info'
 			halign: 'center'
 			font_size: '50sp'
 			color: 1, 1, 1, 1

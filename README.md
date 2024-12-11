@@ -4,9 +4,9 @@
 
 ## Requirements
 
-![Python](https://img.shields.io/badge/Python-3.11+-blue)
-![Kivy](https://img.shields.io/badge/Kivy-2.1.0%2B-red)
-![KivyMD](https://img.shields.io/badge/KivyMD-1.1.1%2B-green)
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Kivy](https://img.shields.io/badge/Kivy-2.3.0-red)
+![KivyMD](https://img.shields.io/badge/KivyMD-1.2.0-green)
 
 ## Introduction
 
@@ -33,10 +33,10 @@
 
 ## Note
 
-The letters **ü** and **ö** in the app's name and titles are stylistic and does not affect functionality or meaning!
+The letter **ü** in the app's name is purely stylistic, doesn't affect functionality or have a meaning!
 
 ## Contact
 
-- [Discord](https://discord.com/users/873920068571000833)
-- [GitHub](https://github.com/CrazyFlyKite)
-- [Email](mailto:karpenkoartem2846@gmail.com)
+- **[Discord](https://discord.com/users/873920068571000833)**
+- **[GitHub](https://github.com/CrazyFlyKite)**
+- **[Email](mailto:karpenkoartem2846@gmail.com)**
