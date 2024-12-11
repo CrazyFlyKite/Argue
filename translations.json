@@ -1,0 +1,166 @@
+{
+	"en": {
+		"titles": {
+			"author": "by CrazyFlyKite",
+			"info": "Info"
+		},
+		"action_titles": {
+			"reason_for_point": "Reason for the point",
+			"confirm_deletion": "Confirm Deletion",
+			"clear_history": "Clear History",
+			"edit_reason": "Edit Reason",
+			"open_github": "Open GitHub"
+		},
+		"descriptions": {
+			"delete": "Are you sure you want to delete this entry?",
+			"clear_history": "Are you sure you want to clear the history?",
+			"open_github": "Are you sure you want to visit the GitHub page of this project?"
+		},
+		"hints": {
+			"reason": "Reason",
+			"enter_reason": "Enter new reason"
+		},
+		"buttons": {
+			"visit": "Visit",
+			"cancel": "Cancel",
+			"save": "Save",
+			"delete": "Delete",
+			"clear": "Clear"
+		},
+		"other": {
+			"info": [
+				"Track [color=00FF00]correct[/color] and [color=FF0000]incorrect[/color] points during your discussions!",
+				"\nUse the [color=00FF00]correct[/color] counter when:",
+				"- Someone makes a valid point or wins an argument",
+				"- A statement is proven to be true or helpful in the discussion",
+				"\nUse the [color=FF0000]incorrect[/color] counter when:",
+				"- Someone is proven wrong or loses an argument",
+				"- A statement turns out to be false or irrelevant",
+				"\n[color=0066CC]Add reasons for each point to make it more fun to review later![/color]"
+			]
+		}
+	},
+	"ru": {
+		"titles": {
+			"author": "от CrazyFlyKite",
+			"info": "Информация"
+		},
+		"action_titles": {
+			"reason_for_point": "Причина Очка",
+			"confirm_deletion": "Подтвердить Удаление",
+			"clear_history": "Очистить Историю",
+			"edit_reason": "Редактировать Причину",
+			"open_github": "Открыть GitHub"
+		},
+		"descriptions": {
+			"delete": "Вы уверены, что хотите удалить эту запись?",
+			"clear_history": "Вы уверены, что хотите очистить историю?",
+			"open_github": "Вы уверены, что хотите посетить страницу GitHub этого проекта?"
+		},
+		"hints": {
+			"reason": "Причина",
+			"enter_reason": "Введите новую причину"
+		},
+		"buttons": {
+			"visit": "Посетить",
+			"cancel": "Отмена",
+			"save": "Сохранить",
+			"delete": "Удалить",
+			"clear": "Очистить"
+		},
+		"other": {
+			"info": [
+				"Отслеживайте [color=00FF00]правильные[/color] и [color=FF0000]неправильные[/color] очки во время ваших обсуждений!",
+				"\nИспользуйте счетчик [color=00FF00]правильных[/color] очков, когда:",
+				"- Кто-то делает правильное утверждение или выигрывает спор",
+				"- Утверждение оказывается правдой или полезным в обсуждении",
+				"\nИспользуйте счетчик [color=FF0000]неправильных[/color] очков, когда:",
+				"- Кто-то оказывается неправым или проигрывает спор",
+				"- Утверждение оказывается ложным или неактуальным",
+				"\n[color=0066CC]Добавьте причины для каждого балла, чтобы было интереснее просматривать их позже![/color]"
+			]
+		}
+	},
+	"ua": {
+		"titles": {
+			"author": "від CrazyFlyKite",
+			"info": "Інформація"
+		},
+		"action_titles": {
+			"reason_for_point": "Причина Очка",
+			"confirm_deletion": "Підтвердити Видалення",
+			"clear_history": "Очистити Історію",
+			"edit_reason": "Редагувати Причину",
+			"open_github": "Відкрити GitHub"
+		},
+		"descriptions": {
+			"delete": "Ви впевнені, що хочете видалити цей запис?",
+			"clear_history": "Ви впевнені, що хочете очистити історію?",
+			"open_github": "Ви впевнені, що хочете відвідати сторінку GitHub цього проєкту?"
+		},
+		"hints": {
+			"reason": "Причина",
+			"enter_reason": "Введіть нову причину"
+		},
+		"buttons": {
+			"visit": "Відвідати",
+			"cancel": "Скасувати",
+			"save": "Зберегти",
+			"delete": "Видалити",
+			"clear": "Очистити"
+		},
+		"other": {
+			"info": [
+				"Відстежуйте [color=00FF00]правильні[/color] та [color=FF0000]неправильні[/color] очки під час ваших обговорень!",
+				"\nВикористовуйте лічильник [color=00FF00]правильних[/color] балів, коли:",
+				"- Хтось робить правильне зауваження або виграє суперечку",
+				"- Твердження виявляється правдою або корисним у обговоренні",
+				"\nВикористовуйте лічильник [color=FF0000]неправильних[/color] балів, коли:",
+				"- Хтось виявляється неправим або програє суперечку",
+				"- Твердження виявляється неправдивим або неактуальним",
+				"\n[color=0066CC]Додавайте причини для кожного балу, щоб було цікавіше переглядати їх пізніше![/color]"
+			]
+		}
+	},
+	"fr": {
+		"titles": {
+			"author": "de CrazyFlyKite",
+			"info": "Info"
+		},
+		"action_titles": {
+			"reason_for_point": "Raison du point",
+			"confirm_deletion": "Confirmer la suppression",
+			"clear_history": "Effacer l'histoire",
+			"edit_reason": "Modifier la raison",
+			"open_github": "Ouvrir GitHub"
+		},
+		"descriptions": {
+			"delete": "Êtes-vous sûr de vouloir supprimer cette entrée ?",
+			"clear_history": "Êtes-vous sûr de vouloir effacer l'histoire ?",
+			"open_github": "Êtes-vous sûr de vouloir visiter la page GitHub de ce projet ?"
+		},
+		"hints": {
+			"reason": "Raison",
+			"enter_reason": "Entrez une nouvelle raison"
+		},
+		"buttons": {
+			"visit": "Visiter",
+			"cancel": "Annuler",
+			"save": "Enregistrer",
+			"delete": "Supprimer",
+			"clear": "Effacer"
+		},
+		"other": {
+			"info": [
+				"Suivez les points [color=00FF00]corrects[/color] et [color=FF0000]incorrects[/color] lors de vos discussions !",
+				"\nUtilisez le compteur [color=00FF00]correct[/color] lorsque :",
+				"- Quelqu'un fait un point valide ou gagne un argument",
+				"- Une affirmation est prouvée être vraie ou utile dans la discussion",
+				"\nUtilisez le compteur [color=FF0000]incorrect[/color] lorsque :",
+				"- Quelqu'un est prouvé être dans l'erreur ou perd un argument",
+				"- Une affirmation se révèle fausse ou hors de propos",
+				"\n[color=0066CC]Ajoutez des raisons pour chaque point afin de rendre la révision plus amusante ![/color]"
+			]
+		}
+	}
+}
