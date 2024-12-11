@@ -1,72 +1,72 @@
 ScreenManager:
-    id: screen_manager
+	id: screen_manager
 
-    # Main screen
-    Screen:
-        name: 'main'
+	# Main screen
+	Screen:
+		name: 'main'
 
-        FloatLayout:
-            Image:
-                source: 'background.jpg'
-                allow_stretch: True
-                keep_ratio: False
+		FloatLayout:
+			Image:
+				source: 'background.jpg'
+				allow_stretch: True
+				keep_ratio: False
 
-            MDLabel:
-                text: 'Argüe'
-                halign: 'center'
-                valign: 'top'
-                font_name: 'JetBrainsMono'
-                font_size: '80sp'
-                size_hint_y: None
-                pos_hint: {'center_x': 0.5, 'top': 0.9}
+			MDLabel:
+				text: 'Argüe'
+				halign: 'center'
+				valign: 'top'
+				font_name: 'JetBrainsMono'
+				font_size: '80sp'
+				size_hint_y: None
+				pos_hint: {'center_x': 0.5, 'top': 0.9}
 
-            MDLabel:
-                text: 'by CrazyFlyKite'
-                halign: 'center'
-                valign: 'top'
-                font_name: 'JetBrainsMono'
-                font_size: '20sp'
-                color: 1, 1, 1, 1
-                size_hint_y: None
-                pos_hint: {'center_x': 0.5, 'top': 0.8}
+			MDLabel:
+				text: 'by CrazyFlyKite'
+				halign: 'center'
+				valign: 'top'
+				font_name: 'JetBrainsMono'
+				font_size: '20sp'
+				color: 1, 1, 1, 1
+				size_hint_y: None
+				pos_hint: {'center_x': 0.5, 'top': 0.8}
 
-            MDBoxLayout:
-                orientation: 'horizontal'
-                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-                spacing: 10
-                adaptive_width: True
-                adaptive_height: True
+			MDBoxLayout:
+				orientation: 'horizontal'
+				pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+				spacing: 10
+				adaptive_width: True
+				adaptive_height: True
 
-                # Correct counter
-                MDBoxLayout:
-                    orientation: 'vertical'
-                    size_hint: None, None
-                    width: '150dp'
-                    height: '250dp'
-                    pos_hint: {'center_x': 0.5, 'center_y': 0.575}
+				# Correct counter
+				MDBoxLayout:
+					orientation: 'vertical'
+					size_hint: None, None
+					width: '150dp'
+					height: '250dp'
+					pos_hint: {'center_x': 0.5, 'center_y': 0.575}
 
-                    MDFloatingActionButton:
-                        icon: 'plus'
-                        icon_size: '50dp'
-                        on_release: app.show_reason_dialog('correct')
-                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+					MDFloatingActionButton:
+						icon: 'plus'
+						icon_size: '50dp'
+						on_release: app.show_reason_dialog('correct')
+						pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
-                    MDLabel:
-                        id: correct_label
-                        text: str(app.correct)
-                        halign: 'center'
-                        valign: 'center'
-                        theme_text_color: 'Custom'
-                        text_color: 0.07, 0.83, 0.13, 1
-                        bold: True
-                        font_style: 'H2'
-                        size_hint: None, None
-                        width: '150dp'
-                        height: '100dp'
-                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+					MDLabel:
+						id: correct_label
+						text: str(app.correct)
+						halign: 'center'
+						valign: 'center'
+						theme_text_color: 'Custom'
+						text_color: 0.07, 0.83, 0.13, 1
+						bold: True
+						font_style: 'H2'
+						size_hint: None, None
+						width: '150dp'
+						height: '100dp'
+						pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
-                    MDLabel:
-                    	id: correct_percentage_label
+					MDLabel:
+						id: correct_percentage_label
 						halign: 'center'
 						valign: 'center'
 						theme_text_color: 'Custom'
@@ -77,36 +77,36 @@ ScreenManager:
 						height: '40dp'
 						pos_hint: {'center_x': 0.5, 'center_y': 0.2}
 
-                # Incorrect counter
-                MDBoxLayout:
-                    orientation: 'vertical'
-                    size_hint: None, None
-                    width: '150dp'
-                    height: '250dp'
-                    pos_hint: {'center_x': 0.5, 'center_y': 0.575}
+				# Incorrect counter
+				MDBoxLayout:
+					orientation: 'vertical'
+					size_hint: None, None
+					width: '150dp'
+					height: '250dp'
+					pos_hint: {'center_x': 0.5, 'center_y': 0.575}
 
-                    MDFloatingActionButton:
-                        icon: 'plus'
-                        icon_size: '50dp'
-                        on_release: app.show_reason_dialog('incorrect')
-                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+					MDFloatingActionButton:
+						icon: 'plus'
+						icon_size: '50dp'
+						on_release: app.show_reason_dialog('incorrect')
+						pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
-                    MDLabel:
-                        id: incorrect_label
-                        text: str(app.incorrect)
-                        halign: 'center'
-                        valign: 'center'
-                        theme_text_color: 'Custom'
-                        text_color: 1, 0, 0, 1
-                        bold: True
-                        font_style: 'H2'
-                        size_hint: None, None
-                        width: '150dp'
-                        height: '100dp'
-                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+					MDLabel:
+						id: incorrect_label
+						text: str(app.incorrect)
+						halign: 'center'
+						valign: 'center'
+						theme_text_color: 'Custom'
+						text_color: 1, 0, 0, 1
+						bold: True
+						font_style: 'H2'
+						size_hint: None, None
+						width: '150dp'
+						height: '100dp'
+						pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
-                    MDLabel:
-                    	id: incorrect_percentage_label
+					MDLabel:
+						id: incorrect_percentage_label
 						halign: 'center'
 						valign: 'center'
 						theme_text_color: 'Custom'
@@ -117,7 +117,7 @@ ScreenManager:
 						height: '40dp'
 						pos_hint: {'center_x': 0.5, 'center_y': 0.2}
 
-            # History, info and GitHub buttons
+			# History, info and GitHub buttons
 			AnchorLayout:
 				anchor_x: 'left'
 				anchor_y: 'bottom'
@@ -161,51 +161,52 @@ ScreenManager:
 						md_bg_color: app.theme_cls.primary_color
 						pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
-    # History screen
-    Screen:
-        name: 'history'
+	# History screen
+	Screen:
+		name: 'history'
 
-        Image:
-            source: 'background.jpg'
-            allow_stretch: True
-            keep_ratio: False
+		Image:
+			source: 'background.jpg'
+			allow_stretch: True
+			keep_ratio: False
 
-        MDLabel:
-            text: 'Histöry'
-            halign: 'center'
-            valign: 'top'
-            font_name: 'JetBrainsMono'
-            font_size: '50sp'
-            color: 1, 1, 1, 1
-            size_hint_y: 1.75
-            height: '120dp'
+		MDLabel:
+			text: 'Histöry'
+			halign: 'center'
+			valign: 'top'
+			font_name: 'JetBrainsMono'
+			font_size: '50sp'
+			color: 1, 1, 1, 1
+			size_hint_y: 1.75
+			height: '100dp'
 
-        BoxLayout:
-            orientation: 'vertical'
-            padding: '10dp'
-            spacing: '10dp'
-            pos_hint: {'y': -0.2}
+		BoxLayout:
+			orientation: 'vertical'
+			pos_hint: {'center_x': 0.5, 'center_y': 0.65}
 
-            ScrollView:
-                MDList:
-                    id: history_list
+			ScrollView:
+				size_hint_y: None
+				height: self.parent.height - 400
 
-        AnchorLayout:
-            anchor_x: 'left'
-            anchor_y: 'bottom'
+				MDList:
+					id: history_list
 
-            MDBoxLayout:
-                size_hint: None, None
-                width: '80dp'
-                height: '80dp'
-                padding: '10dp'
+		AnchorLayout:
+			anchor_x: 'left'
+			anchor_y: 'bottom'
 
-                MDFloatingActionButton:
-                    icon: 'arrow-left'
-                    icon_size: '50dp'
-                    on_release: app.go_to_main_screen()
+			MDBoxLayout:
+				size_hint: None, None
+				width: '80dp'
+				height: '80dp'
+				padding: '10dp'
 
-        AnchorLayout:
+				MDFloatingActionButton:
+					icon: 'arrow-left'
+					icon_size: '50dp'
+					on_release: app.go_to_main_screen()
+
+		AnchorLayout:
 			anchor_x: 'right'
 			anchor_y: 'bottom'
 
@@ -221,8 +222,7 @@ ScreenManager:
 					on_release: app.clear_history()
 					md_bg_color: 1, 0, 0, 1
 
-
-    # Info Screen
+	# Info Screen
 	Screen:
 		name: 'info'
 

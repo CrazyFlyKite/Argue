@@ -43,8 +43,8 @@ class ArgueApp(MDApp):
 			self.root.ids.correct_percentage_label.text = f'{self.correct / total:.0%}'
 			self.root.ids.incorrect_percentage_label.text = f'{self.incorrect / total:.0%}'
 		else:
-			self.root.ids.correct_percentage_label.text = ''
-			self.root.ids.incorrect_percentage_label.text = ''
+			self.root.ids.correct_percentage_label.text = '0%'
+			self.root.ids.incorrect_percentage_label.text = '0%'
 
 		self.root.ids.correct_label.text = str(self.correct)
 		self.root.ids.incorrect_label.text = str(self.incorrect)
