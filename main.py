@@ -120,30 +120,35 @@ class ArgueApp(MDApp):
 		self.root.current = HISTORY_SCREEN
 
 	def edit_history_point(self, index: int) -> None:
+		def save_edited_reason() -> None:
+			if new_reason := self.dialog.content_cls.text:
+				self.history[index]['reason'] = new_reason
+				data_manager.write('history', self.history)
+				self.dialog.dismiss()
+				self.root.ids.history_list.children[index].children[2].text = new_reason
+
 		self.dialog = ask_text_dialog(
 			title='Edit Reason', hint='Enter new reason',
-			button_text='Save', button_color=(1, 0, 0, 1), function=lambda *args: self.save_edited_reason(index)
+			button_text='Save', button_color=(1, 0, 0, 1), function=lambda *args: save_edited_reason()
 		)
 		self.dialog.content_cls.text = self.history[index]['reason']
 		self.dialog.open()
 
-	def save_edited_reason(self, index: int) -> None:
-		if new_reason := self.dialog.content_cls.text:
-			self.history[index]['reason'] = new_reason
-			data_manager.write('history', self.history)
-			self.dialog.dismiss()
-			self.show_history()
-
 	def delete_history_point(self, index: int) -> None:
-		def delete(i: int) -> None:
+		def delete() -> None:
 			del self.history[index]
 			data_manager.write('history', self.history)
 			self.dialog.dismiss()
-			self.show_history()
+
+			history_list = self.root.ids.history_list
+			history_list.remove_widget(history_list.children[index])
 
 		self.dialog = yes_no_dialog(
-			title='Confirm Deletion', description='Are you sure you want to delete this entry?',
-			button_text='Delete', button_color=(1, 0, 0, 1), function=lambda *args: delete(index)
+			title='Confirm Deletion',
+			description='Are you sure you want to delete this entry?',
+			button_text='Delete',
+			button_color=(1, 0, 0, 1),
+			function=lambda *args: delete()
 		)
 		self.dialog.open()
 
