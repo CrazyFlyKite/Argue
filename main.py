@@ -1,10 +1,12 @@
 import webbrowser
+from typing import List, Callable
 
 from kivy.uix.screenmanager import SlideTransition
 from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.button import MDIconButton
 from kivymd.uix.label import MDIcon, MDLabel
+from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.widget import MDWidget
 
 from data_manager import data_manager
@@ -18,8 +20,9 @@ class ArgueApp(MDApp):
 		super().__init__(**kwargs)
 		self.history = None
 		self.dialog = None
-		self.language = 'fr'
+		self.language = data_manager.load().get('language')
 		self.history = data_manager.load().get('history')
+		self.menu = None
 
 	def build(self) -> MDWidget:
 		self.theme_cls.primary_palette = PALETTE
@@ -33,7 +36,7 @@ class ArgueApp(MDApp):
 		return sum(1 for entry in self.history if entry.get('type') == 'correct')
 
 	@property
-	def incorrect(self) -> None:
+	def incorrect(self) -> int:
 		return sum(1 for entry in self.history if entry.get('type') == 'incorrect')
 
 	def update_labels(self) -> None:
@@ -185,6 +188,36 @@ class ArgueApp(MDApp):
 		self.update_labels()
 		self.root.transition = SlideTransition(direction='right', duration=0.3)
 		self.root.current = MAIN_SCREEN
+
+	def go_to_settings(self) -> None:
+		self.root.transition = SlideTransition()
+		self.root.current = SETTINGS_SCREEN
+
+	def open_language_menu(self) -> None:
+		menu_items: List[Dict[str, str | Callable]] = [
+			{'viewclass': 'OneLineListItem', 'text': 'English', 'disabled': self.language == 'en',
+			 'on_release': lambda: self.select_language('en')},
+			{'viewclass': 'OneLineListItem', 'text': 'Русский', 'disabled': self.language == 'ru',
+			 'on_release': lambda: self.select_language('ru')},
+			{'viewclass': 'OneLineListItem', 'text': 'Українська', 'disabled': self.language == 'ua',
+			 'on_release': lambda: self.select_language('ua')},
+			{'viewclass': 'OneLineListItem', 'text': 'Français', 'disabled': self.language == 'fr',
+			 'on_release': lambda: self.select_language('fr')}
+		]
+
+		self.menu = MDDropdownMenu(caller=self.root.ids.select_language_button, items=menu_items)
+		self.menu.open()
+
+	def select_language(self, language: str) -> None:
+		self.language = language
+		data_manager.write('language', language)
+		self.root.ids.author.text = self.translate('titles/author')
+		self.root.ids.select_language_button.text = self.translate('buttons/select_language')
+		self.root.ids.info.text = self.translate('other/info')
+		self.root.ids.selected_language_label.text = self.translate('other/selected_language')
+		self.root.ids.info_title.text = self.translate('titles/info')
+		self.root.ids.settings_title.text = self.translate('titles/settings')
+		self.menu.dismiss()
 
 	def translate(self, text_id: str) -> str:
 		return get_translation(self.language, text_id)

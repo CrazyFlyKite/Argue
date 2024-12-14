@@ -17,5 +17,5 @@ def get_translation(language: str, text_id: str) -> str:
 
 		return translation
 	except KeyError:
-		logging.error(f'The key {text_id} doesn\'t exist in translations')
+		logging.error(f'The key {language}/{text_id} doesn\'t exist in translations')
 		exit()

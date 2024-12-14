@@ -2,7 +2,8 @@
 	"en": {
 		"titles": {
 			"author": "by CrazyFlyKite",
-			"info": "Info"
+			"info": "Info",
+			"settings": "Settings"
 		},
 		"action_titles": {
 			"reason_for_point": "Reason for the point",
@@ -25,7 +26,8 @@
 			"cancel": "Cancel",
 			"save": "Save",
 			"delete": "Delete",
-			"clear": "Clear"
+			"clear": "Clear",
+			"select_language": "Select Other Language"
 		},
 		"other": {
 			"info": [
@@ -37,13 +39,15 @@
 				"- Someone is proven wrong or loses an argument",
 				"- A statement turns out to be false or irrelevant",
 				"\n[color=0066CC]Add reasons for each point to make it more fun to review later![/color]"
-			]
+			],
+			"selected_language": "Selected language: [color=039BE5]English[/color]"
 		}
 	},
 	"ru": {
 		"titles": {
 			"author": "от CrazyFlyKite",
-			"info": "Информация"
+			"info": "Информация",
+			"settings": "Настройки"
 		},
 		"action_titles": {
 			"reason_for_point": "Причина Очка",
@@ -66,7 +70,8 @@
 			"cancel": "Отмена",
 			"save": "Сохранить",
 			"delete": "Удалить",
-			"clear": "Очистить"
+			"clear": "Очистить",
+			"select_language": "Выбрать Другой Язык"
 		},
 		"other": {
 			"info": [
@@ -78,13 +83,15 @@
 				"- Кто-то оказывается неправым или проигрывает спор",
 				"- Утверждение оказывается ложным или неактуальным",
 				"\n[color=0066CC]Добавьте причины для каждого балла, чтобы было интереснее просматривать их позже![/color]"
-			]
+			],
+			"selected_language": "Выбранный язык: [color=039BE5]Русский[/color]"
 		}
 	},
 	"ua": {
 		"titles": {
 			"author": "від CrazyFlyKite",
-			"info": "Інформація"
+			"info": "Інформація",
+			"settings": "Налаштування"
 		},
 		"action_titles": {
 			"reason_for_point": "Причина Очка",
@@ -107,7 +114,8 @@
 			"cancel": "Скасувати",
 			"save": "Зберегти",
 			"delete": "Видалити",
-			"clear": "Очистити"
+			"clear": "Очистити",
+			"select_language": "Вибрати Іншу Мову"
 		},
 		"other": {
 			"info": [
@@ -119,13 +127,15 @@
 				"- Хтось виявляється неправим або програє суперечку",
 				"- Твердження виявляється неправдивим або неактуальним",
 				"\n[color=0066CC]Додавайте причини для кожного балу, щоб було цікавіше переглядати їх пізніше![/color]"
-			]
+			],
+			"selected_language": "Вибрана мова: [color=039BE5]Українська[/color]"
 		}
 	},
 	"fr": {
 		"titles": {
 			"author": "de CrazyFlyKite",
-			"info": "Info"
+			"info": "Info",
+			"settings": "Paramètres"
 		},
 		"action_titles": {
 			"reason_for_point": "Raison du point",
@@ -148,7 +158,8 @@
 			"cancel": "Annuler",
 			"save": "Enregistrer",
 			"delete": "Supprimer",
-			"clear": "Effacer"
+			"clear": "Effacer",
+			"select_language": "Choisir Une Autre Langue"
 		},
 		"other": {
 			"info": [
@@ -160,7 +171,8 @@
 				"- Quelqu'un est prouvé être dans l'erreur ou perd un argument",
 				"- Une affirmation se révèle fausse ou hors de propos",
 				"\n[color=0066CC]Ajoutez des raisons pour chaque point afin de rendre la révision plus amusante ![/color]"
-			]
+			],
+			"selected_language": "Langue choisie: [color=039BE5]Français[/color]"
 		}
 	}
 }

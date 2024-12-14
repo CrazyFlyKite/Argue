@@ -24,6 +24,7 @@ COLOR_DELETE: Final[ColorType] = 0.9, 0.2, 0, 0.8
 MAIN_SCREEN: Final[str] = 'main'
 HISTORY_SCREEN: Final[str] = 'history'
 INFO_SCREEN: Final[str] = 'info'
+SETTINGS_SCREEN: Final[str] = 'settings'
 
 # Other
 GITHUB_LINK: Final[str] = 'https://github.com/CrazyFlyKite/Argue'
