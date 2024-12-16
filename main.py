@@ -5,6 +5,7 @@ from kivy.uix.screenmanager import SlideTransition
 from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.button import MDIconButton
+from kivymd.uix.dialog import MDDialog
 from kivymd.uix.label import MDIcon, MDLabel
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.widget import MDWidget
@@ -18,11 +19,10 @@ from utilities import *
 class ArgueApp(MDApp):
 	def __init__(self, **kwargs) -> None:
 		super().__init__(**kwargs)
-		self.history = None
-		self.dialog = None
+		self.dialog = MDDialog()
 		self.language = data_manager.load().get('language')
 		self.history = data_manager.load().get('history')
-		self.menu = None
+		self.menu = MDDropdownMenu()
 
 	def build(self) -> MDWidget:
 		self.theme_cls.primary_palette = PALETTE
@@ -196,19 +196,19 @@ class ArgueApp(MDApp):
 	def open_language_menu(self) -> None:
 		menu_items: List[Dict[str, str | Callable]] = [
 			{'viewclass': 'OneLineListItem', 'text': 'English', 'disabled': self.language == 'en',
-			 'on_release': lambda: self.select_language('en')},
+			 'on_release': lambda: self.switch_language('en')},
 			{'viewclass': 'OneLineListItem', 'text': 'Русский', 'disabled': self.language == 'ru',
-			 'on_release': lambda: self.select_language('ru')},
+			 'on_release': lambda: self.switch_language('ru')},
 			{'viewclass': 'OneLineListItem', 'text': 'Українська', 'disabled': self.language == 'ua',
-			 'on_release': lambda: self.select_language('ua')},
+			 'on_release': lambda: self.switch_language('ua')},
 			{'viewclass': 'OneLineListItem', 'text': 'Français', 'disabled': self.language == 'fr',
-			 'on_release': lambda: self.select_language('fr')}
+			 'on_release': lambda: self.switch_language('fr')}
 		]
 
 		self.menu = MDDropdownMenu(caller=self.root.ids.select_language_button, items=menu_items)
 		self.menu.open()
 
-	def select_language(self, language: str) -> None:
+	def switch_language(self, language: str) -> None:
 		self.language = language
 		data_manager.write('language', language)
 		self.root.ids.author.text = self.translate('titles/author')

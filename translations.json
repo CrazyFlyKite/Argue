@@ -27,7 +27,7 @@
 			"save": "Save",
 			"delete": "Delete",
 			"clear": "Clear",
-			"select_language": "Select Other Language"
+			"select_language": "Switch Language"
 		},
 		"other": {
 			"info": [
@@ -71,7 +71,7 @@
 			"save": "Сохранить",
 			"delete": "Удалить",
 			"clear": "Очистить",
-			"select_language": "Выбрать Другой Язык"
+			"select_language": "Переключить Язык"
 		},
 		"other": {
 			"info": [
@@ -115,7 +115,7 @@
 			"save": "Зберегти",
 			"delete": "Видалити",
 			"clear": "Очистити",
-			"select_language": "Вибрати Іншу Мову"
+			"select_language": "Змінити Мову"
 		},
 		"other": {
 			"info": [
@@ -159,7 +159,7 @@
 			"save": "Enregistrer",
 			"delete": "Supprimer",
 			"clear": "Effacer",
-			"select_language": "Choisir Une Autre Langue"
+			"select_language": "Changer De Langue"
 		},
 		"other": {
 			"info": [
@@ -172,7 +172,7 @@
 				"- Une affirmation se révèle fausse ou hors de propos",
 				"\n[color=0066CC]Ajoutez des raisons pour chaque point afin de rendre la révision plus amusante ![/color]"
 			],
-			"selected_language": "Langue choisie: [color=039BE5]Français[/color]"
+			"selected_language": "Langue choisie : [color=039BE5]Français[/color]"
 		}
 	}
 }

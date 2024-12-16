@@ -181,11 +181,11 @@ ScreenManager:
 
 		BoxLayout:
 			orientation: 'vertical'
-			pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+			pos_hint: {'center_x': 0.5, 'center_y': 0.62}
 
 			ScrollView:
 				size_hint_y: None
-				height: self.parent.height - 200
+				height: self.parent.height - 210
 
 				MDList:
 					id: history_list
@@ -295,8 +295,9 @@ ScreenManager:
 			width: '500dp'
 			halign: 'center'
 			color: 1, 1, 1, 1
+			font_name: 'JetBrainsMono'
 			markup: True
-			pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+			pos_hint: {'center_x': 0.5, 'center_y': 0.7}
 
 		MDFlatButton:
 			id: select_language_button
@@ -305,10 +306,9 @@ ScreenManager:
 			width: '200dp'
 			height: '40dp'
 			md_bg_color: app.theme_cls.primary_color
-			theme_text_color: 'Custom'
 			font_size: '24sp'
 			on_release: app.open_language_menu()
-			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			pos_hint: {'center_x': 0.5, 'center_y': 0.6}
 
     	# Back Button
 		AnchorLayout:
