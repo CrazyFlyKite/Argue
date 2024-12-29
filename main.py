@@ -1,5 +1,5 @@
 import webbrowser
-from typing import List, Callable
+from typing import List, Any, Callable
 
 from kivy.uix.screenmanager import SlideTransition
 from kivymd.app import MDApp
@@ -11,7 +11,7 @@ from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.widget import MDWidget
 
 from data_manager import data_manager
-from dialogs import ask_text_dialog, yes_no_dialog
+from dialogs import ask_text_dialog, yes_no_dialog, info_dialog
 from translations import get_translation
 from utilities import *
 
@@ -19,9 +19,11 @@ from utilities import *
 class ArgueApp(MDApp):
 	def __init__(self, **kwargs) -> None:
 		super().__init__(**kwargs)
+		data: Any = data_manager.load()
+		self.max_length = data.get('max_length')
 		self.dialog = MDDialog()
-		self.language = data_manager.load().get('language')
-		self.history = data_manager.load().get('history')
+		self.language = data.get('language')
+		self.history = data.get('history')
 		self.menu = MDDropdownMenu()
 
 	def build(self) -> MDWidget:
@@ -54,6 +56,7 @@ class ArgueApp(MDApp):
 		def save() -> None:
 			if reason := self.dialog.content_cls.text:
 				self.history.append({'type': point_type, 'reason': reason})
+				data_manager.write('history', self.history)
 				self.update_labels()
 				self.dialog.dismiss()
 
@@ -64,10 +67,11 @@ class ArgueApp(MDApp):
 		)
 		self.dialog.open()
 
-		data_manager.write('history', self.history)
-		self.update_labels()
-
 	def show_history(self) -> None:
+		def show_full_reason(r: str) -> None:
+			self.dialog = info_dialog(title='Full Reason', text=r, button_text=self.translate('buttons/ok'))
+			self.dialog.open()
+
 		history_list = self.root.ids.history_list
 		history_list.clear_widgets()
 
@@ -76,7 +80,7 @@ class ArgueApp(MDApp):
 				orientation='horizontal',
 				spacing=10,
 				adaptive_height=True,
-				padding=(50, 10),
+				padding=(50, 10)
 			)
 
 			item_layout.add_widget(
@@ -84,17 +88,26 @@ class ArgueApp(MDApp):
 					icon='circle',
 					theme_text_color='Custom',
 					text_color=COLOR_CORRECT if entry['type'] == 'correct' else COLOR_INCORRECT,
-					pos_hint={'y': 0.25},
+					pos_hint={'y': 0.25}
 				)
 			)
 
-			item_layout.add_widget(
-				MDLabel(
-					text=entry['reason'],
-					halign='center',
-					size_hint_x=0.7,
-				)
+			reason: str = entry['reason']
+			if len(reason) > self.max_length:
+				reason = reason[:self.max_length] + '…'
+
+			label: MDLabel = MDLabel(
+				text=reason,
+				halign='center',
+				size_hint_x=0.7,
+				font_style='Subtitle1'
 			)
+
+			label.bind(
+				on_touch_down=lambda instance, touch, r=entry['reason']:
+				show_full_reason(r) if instance.collide_point(*touch.pos) else None
+			)
+			item_layout.add_widget(label)
 
 			# Edit button
 			item_layout.add_widget(
@@ -102,7 +115,7 @@ class ArgueApp(MDApp):
 					icon='pencil',
 					theme_text_color='Custom',
 					text_color=COLOR_EDIT,
-					on_release=lambda *args, i=len(self.history) - index - 1: self.edit_history_point(i),
+					on_release=lambda *args, i=len(self.history) - index - 1: self.edit_history_point(i)
 				)
 			)
 
@@ -112,7 +125,7 @@ class ArgueApp(MDApp):
 					icon='delete',
 					theme_text_color='Custom',
 					text_color=COLOR_DELETE,
-					on_release=lambda *args, i=len(self.history) - index - 1: self.delete_history_point(i),
+					on_release=lambda *args, i=len(self.history) - index - 1: self.delete_history_point(i)
 				)
 			)
 
@@ -123,11 +136,28 @@ class ArgueApp(MDApp):
 
 	def edit_history_point(self, index: int) -> None:
 		def save_edited_reason() -> None:
-			if new_reason := self.dialog.content_cls.text:
-				self.history[index]['reason'] = new_reason
+			input_text = self.dialog.content_cls.text.strip()
+
+			if input_text.startswith('/max_length '):
+				new_max_length = int(input_text.split()[1])
+				self.max_length = new_max_length
+				data_manager.write('max_length', self.max_length)
+				self.dialog.dismiss()
+				self.show_history()
+				self.dialog = info_dialog(
+					title='Command Executed',
+					text=f'Maximum length set to {new_max_length} characters.',
+					button_text=self.translate('buttons/ok')
+				)
+				self.dialog.open()
+			elif self.dialog.content_cls.text:
+				self.history[index]['reason'] = input_text
 				data_manager.write('history', self.history)
 				self.dialog.dismiss()
-				self.root.ids.history_list.children[index].children[2].text = new_reason
+				reason: str = self.history[index]['reason']
+				if len(reason) > self.max_length:
+					reason = reason[:self.max_length] + '…'
+				self.root.ids.history_list.children[index].children[2].text = reason
 
 		self.dialog = ask_text_dialog(
 			title=self.translate('action_titles/edit_reason'), hint=self.translate('hints/enter_reason'),

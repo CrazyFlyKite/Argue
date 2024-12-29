@@ -54,3 +54,19 @@ def yes_no_dialog(*, title: str, description: str, button_text1: str, button_tex
 	)
 
 	return dialog
+
+
+def info_dialog(*, title: str, text: str, button_text: str) -> MDDialog:
+	dialog: MDDialog = MDDialog(
+		title=title,
+		text=text,
+		buttons=[
+			MDRaisedButton(
+				text=button_text,
+				on_release=lambda *args: dialog.dismiss(),
+				size=('100dp', '40dp'),
+			)
+		]
+	)
+
+	return dialog

@@ -10,6 +10,7 @@
 			"confirm_deletion": "Confirm Deletion",
 			"clear_history": "Clear History",
 			"edit_reason": "Edit Reason",
+			"full_reason": "Full Reason",
 			"open_github": "Open GitHub"
 		},
 		"descriptions": {
@@ -22,6 +23,7 @@
 			"enter_reason": "Enter new reason"
 		},
 		"buttons": {
+			"ok": "OK",
 			"visit": "Visit",
 			"cancel": "Cancel",
 			"save": "Save",
@@ -54,6 +56,7 @@
 			"confirm_deletion": "Подтвердить Удаление",
 			"clear_history": "Очистить Историю",
 			"edit_reason": "Редактировать Причину",
+			"full_reason": "Полная Причина",
 			"open_github": "Открыть GitHub"
 		},
 		"descriptions": {
@@ -66,6 +69,7 @@
 			"enter_reason": "Введите новую причину"
 		},
 		"buttons": {
+			"ok": "ОК",
 			"visit": "Посетить",
 			"cancel": "Отмена",
 			"save": "Сохранить",
@@ -98,6 +102,7 @@
 			"confirm_deletion": "Підтвердити Видалення",
 			"clear_history": "Очистити Історію",
 			"edit_reason": "Редагувати Причину",
+			"full_reason": "Повна Причина",
 			"open_github": "Відкрити GitHub"
 		},
 		"descriptions": {
@@ -110,6 +115,7 @@
 			"enter_reason": "Введіть нову причину"
 		},
 		"buttons": {
+			"ok": "ОК",
 			"visit": "Відвідати",
 			"cancel": "Скасувати",
 			"save": "Зберегти",
@@ -138,10 +144,11 @@
 			"settings": "Paramètres"
 		},
 		"action_titles": {
-			"reason_for_point": "Raison du point",
-			"confirm_deletion": "Confirmer la suppression",
-			"clear_history": "Effacer l'histoire",
-			"edit_reason": "Modifier la raison",
+			"reason_for_point": "Raison du Point",
+			"confirm_deletion": "Confirmer la Suppression",
+			"clear_history": "Effacer l'Histoire",
+			"edit_reason": "Modifier la Raison",
+			"full_reason": "Raison Entière",
 			"open_github": "Ouvrir GitHub"
 		},
 		"descriptions": {
@@ -154,12 +161,13 @@
 			"enter_reason": "Entrez une nouvelle raison"
 		},
 		"buttons": {
+			"ok": "OK",
 			"visit": "Visiter",
 			"cancel": "Annuler",
 			"save": "Enregistrer",
 			"delete": "Supprimer",
 			"clear": "Effacer",
-			"select_language": "Changer De Langue"
+			"select_language": "Changer de Langue"
 		},
 		"other": {
 			"info": [
